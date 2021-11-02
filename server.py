@@ -1,7 +1,7 @@
 from colab_model import CollaborationModel as model
 from visualization import visualization, ModularServer, UserSettableParameter
 
-MODEL_PARAMS = {
+model_params = {
     "avgNeighbors": UserSettableParameter(
         "slider",
         "Average Neighbors",
@@ -41,7 +41,7 @@ MODEL_PARAMS = {
     # instituition creation variance
 }
 
-MODEL_NAME = "CollaborationModel"
+model_name = "CollaborationModel"
 
-server = ModularServer(model, visualization, MODEL_NAME, MODEL_PARAMS)
+server = ModularServer(model, visualization, model_name, model_params)
 server.port = 8521

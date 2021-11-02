@@ -16,10 +16,11 @@ class ScientistAgent(Agent):
         doc step.
         '''
         self.get_neighbors()
+        # self.should_colab()
 
     def get_neighbors(self):
         '''
         doc get_neighbors.
         '''
         neighbors_nodes = self.model.grid.get_neighbors(self.pos, include_center=False)
-        print(f'im agent {self.unique_id} and my neighbors are {neighbors_nodes}')
+        print(f'im scientist agent {self.unique_id} and my neighbors are {neighbors_nodes}')
