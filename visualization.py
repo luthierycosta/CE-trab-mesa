@@ -9,10 +9,19 @@ def network_portrayal(graph):
     '''
 
     def node_color(agent):
-        return "#FF0000"
+        # if (agent.color == None):
+        #     return "#FF0000"
+        # else:
+        #     return agent.color
+        return agent.color or "#FF0000"
+
 
     def edge_color(agent1, agent2):
+        if (agent1.color and agent2.color):
+                return agent1.color
         return "#000000"
+
+        # return agent1.color and agent2.color
 
     def edge_width(agent1, agent2):
         # if State.RESISTANT in (agent1.state, agent2.state):
@@ -24,24 +33,22 @@ def network_portrayal(graph):
 
     portrayal = dict()
     portrayal["nodes"] = [
-      {
-        "size": 6,
-        "color": node_color(agents[0]),
-        "tooltip": "id: {}<br>ppc: {}<br> pop den: {} hab/km²".format(
-          agents[0].unique_id, agents[0].pib_per_capita, agents[0].pop_density
-        ),
-      }
-      for (_, agents) in graph.nodes.data("agent")
+        {
+            "size": 6,
+            "color": node_color(agents[0]),
+            "tooltip": f'id: {agents[0].unique_id}<br>age: {agents[0].age}<br> organization: {agents[0].organization["sigla"]} ({agents[0].organization["cidade"]})<br> health: {agents[0].health}',
+        }
+        for (_, agents) in graph.nodes.data("agent")
     ]
 
     portrayal["edges"] = [
-      {
-        "source": source,
-        "target": target,
-        "color": edge_color(*get_agents(source, target)),
-        "width": edge_width(*get_agents(source, target)),
-      }
-      for (source, target) in graph.edges
+        {
+            "source": source,
+            "target": target,
+            "color": edge_color(*get_agents(source, target)),
+            "width": edge_width(*get_agents(source, target)),
+        }
+        for (source, target) in graph.edges
     ]
 
     return portrayal
@@ -60,12 +67,17 @@ network = NetworkModule(network_portrayal, 500, 500, library="d3")
 #     )
 
 # Chart
-chart = ChartModule(
-  [
-    {"Label": "Infected", "Color": "#FF0000"},
-    {"Label": "Susceptible", "Color": "#008000"},
-    {"Label": "Resistant", "Color": "#808080"},
-  ]
+# chart_no_colab = ChartModule(
+#     [
+#         {"Label": "Sem colaboração", "Color": "#FF0000"}
+#     ]
+# )
+
+chart_colab = ChartModule(
+    [
+        {"Label": "Colaboration", "Color": "#00FF00"}
+    ]
 )
 
-visualization = [network, chart]
+
+visualization = [network, chart_colab]

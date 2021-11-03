@@ -2,41 +2,50 @@ from colab_model import CollaborationModel as model
 from visualization import visualization, ModularServer, UserSettableParameter
 
 model_params = {
-    "avgNeighbors": UserSettableParameter(
+    "scientist_num": UserSettableParameter(
         "slider",
-        "Average Neighbors",
-        3,
-        0,
-        10,
-        1,
-        description="Number of territories",
+        "Número de cientistas",
+        50,
+        2,
+        200,
+        2,
+        description="Número de cientistas",
     ),
-    "territory_num": UserSettableParameter(
+    "time_step": UserSettableParameter(
         "slider",
-        "Number of Territories",
-        35,
+        "Passagem do tempo em meses",
+        6,
         1,
-        100,
+        36,
         1,
-        description="Number of territories",
+        description="Passagem do tempo em meses",
     ),
-    "pib_instituition_weight": UserSettableParameter(
+    "chance_of_org_change": UserSettableParameter(
         "slider",
-        "PIB per capita weight",
+        "Chance de mudar de organização",
         0,
-        0.4,
+        0,
         1,
         0.05,
-        description="how much the pib per capita factors into the probability of a new instituition opening up in a territory",
+        description="Chance de mudar de organização",
     ),
-    "pop_instituition_weight": UserSettableParameter(
+    "health_factor": UserSettableParameter(
         "slider",
-        "population density weight",
+        "Chance de cientistas com má saude",
         0,
-        0.4,
+        0,
         1,
         0.05,
-        description="how much the population density factors into the probability of a new instituition opening up in a territory",
+        description="Controla quantos cientistas serão criados com má condição de saúde",
+    ),
+    "financial_need_weight": UserSettableParameter(
+        "slider",
+        "Peso da condição financeira",
+        0,
+        0,
+        1,
+        0.05,
+        description="Controla o quanto a necessidade financeira pode interferir na propensão do cientista para colaborar",
     ),
     # instituition creation variance
 }
