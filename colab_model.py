@@ -70,9 +70,9 @@ class CollaborationModel(Model):
         self.scientists.append(scientist)
         return scientist
 
-    def export(self, filename: string):
+    def export(self, filename):
         with open(filename, 'w', newline='') as file:
-            w = csv.writer(file, quoting=csv.QUOTE_ALL)
+            wr = csv.writer(file, quoting=csv.QUOTE_ALL)
             wr.writerow(["id","color"])
             for sc in self.scientists:
                 wr.writerow([sc.id, sc.color])
