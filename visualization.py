@@ -13,12 +13,12 @@ def network_portrayal(graph):
         #     return "#FF0000"
         # else:
         #     return agent.color
-        return agent.color or "#FF0000"
+        return '#00FF00' if agent.collaborators else "#FF0000"
 
 
     def edge_color(agent1, agent2):
-        if (agent1.color and agent2.color):
-                return agent1.color
+        if (agent1 in agent2.collaborators and agent2 in agent1.collaborators):
+                return '#00FF00'
         return "#000000"
 
         # return agent1.color and agent2.color
@@ -36,7 +36,11 @@ def network_portrayal(graph):
         {
             "size": 6,
             "color": node_color(agents[0]),
-            "tooltip": f'id: {agents[0].unique_id}<br>age: {agents[0].age}<br> organization: {agents[0].organization["sigla"]} ({agents[0].organization["cidade"]})<br> health: {agents[0].health}',
+            "tooltip": f'id: {agents[0].unique_id}<br>\
+                        age: {agents[0].age}<br>\
+                        health: {agents[0].health}<br>\
+                        organization: {agents[0].organization["sigla"]} ({agents[0].organization["cidade"]})<br>\
+                        interest: {agents[0].area_of_interest["area"]} - {agents[0].area_of_interest["interesse"]}',
         }
         for (_, agents) in graph.nodes.data("agent")
     ]

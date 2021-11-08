@@ -75,7 +75,7 @@ class CollaborationModel(Model):
             wr = csv.writer(file, quoting=csv.QUOTE_ALL)
             wr.writerow(["id","color"])
             for sc in self.scientists:
-                wr.writerow([sc.id, sc.color])
+                wr.writerow([sc.unique_id, sc.color])
 
     def step(self):
         self.datacollector.collect(self)
