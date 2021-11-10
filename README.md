@@ -10,7 +10,7 @@ O código, este texto, os resultados da simulação e os gráficos gerados a par
 
 ## Descrição da simulação e dos dados gerados
 
-A lista de universidades foi obtida pelo rank das melhores universidades em 2019 pela [Folha de São Paulo](https://ruf.folha.uol.com.br/2019/ranking-de-universidades/principal/); e, a lista de interesses de pesquisa dos cientistas foi obtida através da seleção do subconjunto de áreas de pesquisa existentes hoje e listadas pela [CAPES](http://fisio.icb.usp.br:4882/posgraduacao/bolsas/capesproex_bolsas/tabela_areas.html).
+A lista de universidades foi obtida pelo rank das melhores universidades em 2019 pela [Folha de São Paulo](https://ruf.folha.uol.com.br/2019/ranking-de-universidades/principal/); e, a lista de interesses de pesquisa dos cientistas foi obtida através da seleção de um pequeno subconjunto de todas áreas de pesquisa existentes hoje e listadas pela [CAPES](http://fisio.icb.usp.br:4882/posgraduacao/bolsas/capesproex_bolsas/tabela_areas.html).
 
 ## Análise dos dados gerados
 
