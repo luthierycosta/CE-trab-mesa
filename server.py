@@ -7,8 +7,8 @@ model_params = {
         "Número de cientistas",
         50,
         2,
-        1000,
-        10,
+        2000,
+        50,
         description="Número de cientistas",
     ),
     "time_step": UserSettableParameter(

@@ -69,7 +69,7 @@ class ScientistAgent(Agent):
         Verifica os atributos do cientista atual e do cientista vizinho e informa se os cientistas devem colaborar.
         '''
         
-        # Verificamos a Universidade, Cidade, Área de conhecimento, Área de Interesse, Idade, Necessidade financeira e Estado do agente
+        # Verificamos a Universidade, Cidade, Área de conhecimento, Área de Interesse, Necessidade financeira e Estado do cientista
         # para indicar se o cientista deve ou não colaborar com outro.
         p = 1 * float(neighbor.organization["sigla"] == self.organization["sigla"]) +\
             1 * float(neighbor.organization["cidade"] == self.organization["cidade"]) +\
