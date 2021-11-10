@@ -9,23 +9,15 @@ def network_portrayal(graph):
     '''
 
     def node_color(agent):
-        # if (agent.color == None):
-        #     return "#FF0000"
-        # else:
-        #     return agent.color
-        return '#00FF00' if agent.collaborators else "#FF0000"
+        return agent.get_color()
 
 
     def edge_color(agent1, agent2):
-        if (agent1 in agent2.collaborators and agent2 in agent1.collaborators):
+        if (agent1.unique_id in agent2.collaborators and agent2.unique_id in agent1.collaborators):
                 return '#00FF00'
         return "#000000"
 
-        # return agent1.color and agent2.color
-
     def edge_width(agent1, agent2):
-        # if State.RESISTANT in (agent1.state, agent2.state):
-        #   return 3
         return 2
 
     def get_agents(source, target):
@@ -59,23 +51,6 @@ def network_portrayal(graph):
 
 # Network
 network = NetworkModule(network_portrayal, 500, 500, library="d3")
-
-# text element
-# class MyTextElement(TextElement):
-#   def render(self, model):
-#     ratio = 0.23456
-#     ratio_text = "&infin;" if ratio is math.inf else "{0:.2f}".format(ratio)
-#     infected_text = str(1337)
-#     return "Resistant/Susceptible Ratio: {}<br>Infected Remaining: {}".format(
-#       ratio_text, infected_text
-#     )
-
-# Chart
-# chart_no_colab = ChartModule(
-#     [
-#         {"Label": "Sem colaboração", "Color": "#FF0000"}
-#     ]
-# )
 
 chart_colab = ChartModule(
     [
