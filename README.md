@@ -12,6 +12,10 @@ O código, este texto, os resultados da simulação e os gráficos gerados a par
 
 A lista de universidades foi obtida pelo rank das melhores universidades em 2019 pela [Folha de São Paulo](https://ruf.folha.uol.com.br/2019/ranking-de-universidades/principal/); e, a lista de interesses de pesquisa dos cientistas foi obtida através da seleção de um pequeno subconjunto de todas áreas de pesquisa existentes hoje e listadas pela [CAPES](http://fisio.icb.usp.br:4882/posgraduacao/bolsas/capesproex_bolsas/tabela_areas.html).
 
+Verificamos a Universidade (peso 1), Cidade (peso 1), Área de conhecimento (peso 2), Área de Interesse (peso 2), Necessidade financeira (peso 2) e Estado do cientista (peso 2) para indicar se ele irá ou não colaborar com outro.
+
+Utilizando dados reais como entrada para nossa simulação, era esperado conseguir uma simulação mais próxima de um ambiente real. No final da simulação foi gerado um arquivo .txt, com uma lista de todas as relações de colaboração no último instante de tempo da simulação; podendo haver repetições.
+
 ## Análise dos dados gerados
 
 ## Discussão de problemas da simulação
